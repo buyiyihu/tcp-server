@@ -1,0 +1,74 @@
+{
+    "port": 5001,
+    "multi_worker": false,
+    "request_schema": [
+        {
+            "length": 1,
+            "name": "request_no",
+            "description": "The serial number of the request"
+        },
+        {
+            "length": 1,
+            "name": "instruction_id",
+            "description": "The identification of the instruction",
+            "is_identifier": true
+        },
+        {
+            "length": -1,
+            "name": "request_payload",
+            "description": "Request payload",
+            "is_payload": true,
+            "respective_details": [
+                {
+                    "identifier": 1,
+                    "details": [
+                        {
+                            "length": 2,
+                            "name": "x",
+                            "description": "A parameter for function 1"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "response_schema": [
+        {
+            "length": 1,
+            "name": "request_no",
+            "description": "The serial number of the request",
+            "is_same_as_request": true
+        },
+        {
+            "length": 1,
+            "name": "instruction_id",
+            "description": "The identification of the instruction",
+            "is_identifier": true,
+            "is_same_as_request": true
+        },
+        {
+            "length": 1,
+            "name": "status_code",
+            "description": "Status code of the request",
+            "is_status": true
+        },
+        {
+            "length": -1,
+            "name": "response_payload",
+            "description": "Response payload",
+            "is_payload": true,
+            "respective_details": [
+                {
+                    "identifier": 1,
+                    "details": [
+                        {
+                            "length": 2,
+                            "name": "y",
+                            "description": "The output for function 1"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
